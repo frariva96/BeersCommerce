@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TgZ-aN-9o2">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,20 +8,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Home-->
+        <scene sceneID="hoR-70-TqF">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController title="Home" id="fhL-JC-RCz" customClass="HomeViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cTC-E4-I3z">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AMn-HD-Fox">
+                                <rect key="frame" x="0.0" y="139" width="428" height="787"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beerCell" id="uNk-o1-rCp">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNk-o1-rCp" id="dBa-eG-rAP">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-v0-DQ0">
+                                <rect key="frame" x="0.0" y="88" width="428" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wBy-zz-bxX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="trailing" secondItem="eSo-v0-DQ0" secondAttribute="trailing" id="5yH-kb-bLs"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="top" secondItem="eSo-v0-DQ0" secondAttribute="bottom" id="SPF-6u-aRK"/>
+                            <constraint firstAttribute="trailing" secondItem="AMn-HD-Fox" secondAttribute="trailing" id="UB4-jo-S0z"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="leading" secondItem="cTC-E4-I3z" secondAttribute="leading" id="e4O-4I-SVH"/>
+                            <constraint firstItem="eSo-v0-DQ0" firstAttribute="top" secondItem="wBy-zz-bxX" secondAttribute="top" id="fcx-ti-sod"/>
+                            <constraint firstAttribute="bottom" secondItem="AMn-HD-Fox" secondAttribute="bottom" id="q0a-lC-bqA"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="leading" secondItem="eSo-v0-DQ0" secondAttribute="leading" id="w5w-L8-fQt"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Home" id="KYa-dU-OZW"/>
+                    <connections>
+                        <outlet property="beerTable" destination="AMn-HD-Fox" id="WG2-Rg-mWB"/>
+                        <outlet property="searchBarBeer" destination="eSo-v0-DQ0" id="Ll2-qc-BPB"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WK7-4y-6x7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="107"/>
+            <point key="canvasLocation" x="1544.8598130841121" y="174.94600431965443"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jZK-si-6IT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TgZ-aN-9o2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GAY-lf-oWY">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.023529411760000001" green="0.58039215690000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fhL-JC-RCz" kind="relationship" relationship="rootViewController" id="hfP-L9-vk6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bTP-MP-Y9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644.85981308411215" y="174.94600431965443"/>
         </scene>
     </scenes>
     <resources>

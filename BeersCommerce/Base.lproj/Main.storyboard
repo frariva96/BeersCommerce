@@ -16,35 +16,110 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AMn-HD-Fox">
-                                <rect key="frame" x="0.0" y="139" width="428" height="787"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beerCell" id="uNk-o1-rCp">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNk-o1-rCp" id="dBa-eG-rAP">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-v0-DQ0">
                                 <rect key="frame" x="0.0" y="88" width="428" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AMn-HD-Fox">
+                                <rect key="frame" x="0.0" y="139" width="428" height="753"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beerCell" rowHeight="250" id="uNk-o1-rCp" customClass="BeerTableViewCell" customModule="BeersCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNk-o1-rCp" id="dBa-eG-rAP">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="15U-Z2-Lby">
+                                                    <rect key="frame" x="20" y="37" width="115" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abv:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g01-wu-MbI">
+                                                    <rect key="frame" x="20" y="187" width="31" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ibu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gje-Fa-sqB">
+                                                    <rect key="frame" x="20" y="211" width="26.333333333333329" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% VOL." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIQ-vo-SH8">
+                                                    <rect key="frame" x="59" y="187" width="49" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ibu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX2-ex-1XZ">
+                                                    <rect key="frame" x="59" y="211" width="21" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleBeer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tkA-Ps-K53">
+                                                    <rect key="frame" x="155" y="11" width="253" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cii-qt-Ty2">
+                                                    <rect key="frame" x="155" y="37" width="253" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="253" id="5aO-HK-Dtt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="tkA-Ps-K53" secondAttribute="trailing" constant="20" id="4ai-VE-JOD"/>
+                                                <constraint firstItem="sIQ-vo-SH8" firstAttribute="leading" secondItem="g01-wu-MbI" secondAttribute="trailing" constant="8" symbolic="YES" id="6oV-Id-fxK"/>
+                                                <constraint firstItem="sIQ-vo-SH8" firstAttribute="top" secondItem="15U-Z2-Lby" secondAttribute="bottom" constant="22" id="ADf-Ag-R7G"/>
+                                                <constraint firstItem="cii-qt-Ty2" firstAttribute="bottom" secondItem="15U-Z2-Lby" secondAttribute="bottom" id="I28-y0-kQj"/>
+                                                <constraint firstItem="cii-qt-Ty2" firstAttribute="top" secondItem="tkA-Ps-K53" secondAttribute="bottom" constant="3" id="JHs-hA-BsI"/>
+                                                <constraint firstItem="gje-Fa-sqB" firstAttribute="leading" secondItem="dBa-eG-rAP" secondAttribute="leading" constant="20" symbolic="YES" id="Lxe-Q2-ge6"/>
+                                                <constraint firstItem="gje-Fa-sqB" firstAttribute="top" secondItem="g01-wu-MbI" secondAttribute="bottom" constant="8" symbolic="YES" id="MAn-Ml-JFH"/>
+                                                <constraint firstAttribute="bottom" secondItem="gje-Fa-sqB" secondAttribute="bottom" constant="23" id="MrS-nI-00b"/>
+                                                <constraint firstItem="cii-qt-Ty2" firstAttribute="top" secondItem="15U-Z2-Lby" secondAttribute="top" id="PQi-Hg-2BP"/>
+                                                <constraint firstItem="15U-Z2-Lby" firstAttribute="leading" secondItem="dBa-eG-rAP" secondAttribute="leading" constant="20" symbolic="YES" id="RjW-F9-jh4"/>
+                                                <constraint firstAttribute="bottom" secondItem="LX2-ex-1XZ" secondAttribute="bottom" constant="23" id="Slc-gw-21U"/>
+                                                <constraint firstItem="LX2-ex-1XZ" firstAttribute="leading" secondItem="gje-Fa-sqB" secondAttribute="trailing" constant="12.666666666666671" id="WzM-iE-Jpf"/>
+                                                <constraint firstItem="15U-Z2-Lby" firstAttribute="top" secondItem="dBa-eG-rAP" secondAttribute="top" constant="37" id="Xmk-qs-8n5"/>
+                                                <constraint firstItem="tkA-Ps-K53" firstAttribute="leading" secondItem="dBa-eG-rAP" secondAttribute="leading" constant="155" id="cFl-sn-V6D"/>
+                                                <constraint firstItem="cii-qt-Ty2" firstAttribute="leading" secondItem="15U-Z2-Lby" secondAttribute="trailing" constant="20" id="fb8-nm-aKg"/>
+                                                <constraint firstItem="LX2-ex-1XZ" firstAttribute="top" secondItem="sIQ-vo-SH8" secondAttribute="bottom" constant="8" symbolic="YES" id="kcc-zu-K1R"/>
+                                                <constraint firstItem="g01-wu-MbI" firstAttribute="top" secondItem="15U-Z2-Lby" secondAttribute="bottom" constant="22" id="p40-km-LTC"/>
+                                                <constraint firstItem="tkA-Ps-K53" firstAttribute="top" secondItem="dBa-eG-rAP" secondAttribute="top" constant="11" id="s39-aH-ZSv"/>
+                                                <constraint firstItem="g01-wu-MbI" firstAttribute="leading" secondItem="dBa-eG-rAP" secondAttribute="leading" constant="20" symbolic="YES" id="uJv-AX-NbB"/>
+                                                <constraint firstItem="cii-qt-Ty2" firstAttribute="trailing" secondItem="dBa-eG-rAP" secondAttribute="trailingMargin" id="yp5-R4-act"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="beerAbv" destination="sIQ-vo-SH8" id="bJ3-I1-RUN"/>
+                                            <outlet property="beerDescription" destination="cii-qt-Ty2" id="1Lv-YL-8Kf"/>
+                                            <outlet property="beerIbu" destination="LX2-ex-1XZ" id="sP4-a1-ur3"/>
+                                            <outlet property="beerImage" destination="15U-Z2-Lby" id="IOk-VU-eSb"/>
+                                            <outlet property="beerTitle" destination="tkA-Ps-K53" id="ycc-9D-WP3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wBy-zz-bxX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AMn-HD-Fox" firstAttribute="trailing" secondItem="eSo-v0-DQ0" secondAttribute="trailing" id="5yH-kb-bLs"/>
-                            <constraint firstItem="AMn-HD-Fox" firstAttribute="top" secondItem="eSo-v0-DQ0" secondAttribute="bottom" id="SPF-6u-aRK"/>
-                            <constraint firstAttribute="trailing" secondItem="AMn-HD-Fox" secondAttribute="trailing" id="UB4-jo-S0z"/>
-                            <constraint firstItem="AMn-HD-Fox" firstAttribute="leading" secondItem="cTC-E4-I3z" secondAttribute="leading" id="e4O-4I-SVH"/>
-                            <constraint firstItem="eSo-v0-DQ0" firstAttribute="top" secondItem="wBy-zz-bxX" secondAttribute="top" id="fcx-ti-sod"/>
-                            <constraint firstAttribute="bottom" secondItem="AMn-HD-Fox" secondAttribute="bottom" id="q0a-lC-bqA"/>
-                            <constraint firstItem="AMn-HD-Fox" firstAttribute="leading" secondItem="eSo-v0-DQ0" secondAttribute="leading" id="w5w-L8-fQt"/>
+                            <constraint firstItem="eSo-v0-DQ0" firstAttribute="top" secondItem="wBy-zz-bxX" secondAttribute="top" id="4ZM-4m-9Rp"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="leading" secondItem="wBy-zz-bxX" secondAttribute="leading" id="82A-Ca-prg"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="bottom" secondItem="wBy-zz-bxX" secondAttribute="bottom" id="QgA-t5-K7S"/>
+                            <constraint firstItem="eSo-v0-DQ0" firstAttribute="trailing" secondItem="wBy-zz-bxX" secondAttribute="trailing" id="gZj-Hp-bMB"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="top" secondItem="eSo-v0-DQ0" secondAttribute="bottom" id="hWa-ad-no1"/>
+                            <constraint firstItem="eSo-v0-DQ0" firstAttribute="leading" secondItem="wBy-zz-bxX" secondAttribute="leading" id="r9i-1S-Pve"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="trailing" secondItem="wBy-zz-bxX" secondAttribute="trailing" id="rAw-CQ-Rhd"/>
+                            <constraint firstItem="AMn-HD-Fox" firstAttribute="top" secondItem="eSo-v0-DQ0" secondAttribute="bottom" id="rc0-a3-lUs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="KYa-dU-OZW"/>

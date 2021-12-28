@@ -37,9 +37,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "beerCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "beerCell", for: indexPath) as! BeerTableViewCell
         
-        cell.textLabel?.text = beersList[indexPath.row].name
+        cell.beerTitle.text = beersList[indexPath.row].name
+        cell.beerDescription.text = beersList[indexPath.row].description
+        cell.beerAbv.text = beersList[indexPath.row].abv + "% VOL."
+        cell.beerIbu.text = beersList[indexPath.row].ibu
+        
+        
+        
+        // caricamento asincrono delle immagini
+       if let url = NSURL(string: beersList[indexPath.row].imageUrl) {
+            DispatchQueue.global(qos: .default).async{
+                if let data = NSData(contentsOf: url as URL) {
+                    DispatchQueue.main.async {
+                        cell.beerImage.image = UIImage(data: data as Data)
+                    }
+                }
+            }
+        }
+        
         
         return cell
     }

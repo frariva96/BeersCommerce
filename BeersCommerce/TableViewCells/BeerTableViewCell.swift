@@ -37,7 +37,9 @@ class BeerTableViewCell: UITableViewCell {
         
         cartQuantity = String(Int(cartQuantityLabel.text!)! - 1)
         
-        cartQuantityLabel = cartQuantity
+        cartQuantityLabel.text = cartQuantity!
+        
+        print(cartQuantity!)
         
         
     }
@@ -47,7 +49,9 @@ class BeerTableViewCell: UITableViewCell {
         
         cartQuantity = String(Int(cartQuantityLabel.text!)! + 1)
         
-        cartQuantityLabel = cartQuantity
+        cartQuantityLabel.text = cartQuantity!
+        
+        print(cartQuantity!)
     }
     
     

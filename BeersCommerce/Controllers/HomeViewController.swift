@@ -26,6 +26,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         beerTable.dataSource = self
         
         loadBeersData()
+        
+        cartTabBar.badgeValue = cartQuantity
     }
     
     func loadBeersData () {

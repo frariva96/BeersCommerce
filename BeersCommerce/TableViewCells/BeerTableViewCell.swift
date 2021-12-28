@@ -7,6 +7,8 @@
 
 import UIKit
 
+var cartQuantity: String?
+
 class BeerTableViewCell: UITableViewCell {
     
     
@@ -15,7 +17,9 @@ class BeerTableViewCell: UITableViewCell {
     @IBOutlet weak var beerDescription: UILabel!
     @IBOutlet weak var beerAbv: UILabel!
     @IBOutlet weak var beerIbu: UILabel!
-    @IBOutlet weak var cartQuantity: UILabel!
+    @IBOutlet weak var cartQuantityLabel: UILabel!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,13 +35,21 @@ class BeerTableViewCell: UITableViewCell {
     
     @IBAction func cartMinusAction(_ sender: UIButton) {
         
-        cartQuantity.text = String(Int(cartQuantity.text!)! - 1)
+        cartQuantity = String(Int(cartQuantityLabel.text!)! - 1)
+        
+        cartQuantityLabel = cartQuantity
+        
+        
     }
     
     
     @IBAction func cartPlusAction(_ sender: UIButton) {
         
-        cartQuantity.text = String(Int(cartQuantity.text!)! + 1)
+        cartQuantity = String(Int(cartQuantityLabel.text!)! + 1)
+        
+        cartQuantityLabel = cartQuantity
     }
+    
+    
     
 }

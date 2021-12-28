@@ -18,6 +18,7 @@
 		9BF2C7DE277B2C72000743B3 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2C7DD277B2C72000743B3 /* Beer.swift */; };
 		9BF2C7E0277B2D1C000743B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2C7DF277B2D1C000743B3 /* HomeViewController.swift */; };
 		9BF2C7E2277B4E3F000743B3 /* BeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2C7E1277B4E3F000743B3 /* BeerTableViewCell.swift */; };
+		9BF2C7E4277B62C4000743B3 /* BeerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2C7E3277B62C4000743B3 /* BeerInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9BF2C7DD277B2C72000743B3 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		9BF2C7DF277B2D1C000743B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9BF2C7E1277B4E3F000743B3 /* BeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableViewCell.swift; sourceTree = "<group>"; };
+		9BF2C7E3277B62C4000743B3 /* BeerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9BF2C7DF277B2D1C000743B3 /* HomeViewController.swift */,
+				9BF2C7E3277B62C4000743B3 /* BeerInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF2C7E4277B62C4000743B3 /* BeerInfoViewController.swift in Sources */,
 				9BF2C7DA277B2C38000743B3 /* BeersViewModel.swift in Sources */,
 				9BF2C7DE277B2C72000743B3 /* Beer.swift in Sources */,
 				9BF2C7DC277B2C57000743B3 /* APIService.swift in Sources */,

@@ -15,6 +15,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!
+    @IBOutlet weak var cartTabBar: UITabBarItem!
+    
     
     
     override func viewDidLoad() {
@@ -60,6 +62,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
-
-   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "homeTObeerInfo", sender: beersList[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "homeTObeerInfo" else {
+            return
+        }
+        
+        let vc = segue.destination as! BeerInfoViewController
+        
+        let beer = sender as! Beer
+        
+        vc.beer = beer
+        
+        
+    
+    }
+    
 }

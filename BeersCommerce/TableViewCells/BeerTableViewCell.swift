@@ -15,6 +15,7 @@ class BeerTableViewCell: UITableViewCell {
     @IBOutlet weak var beerDescription: UILabel!
     @IBOutlet weak var beerAbv: UILabel!
     @IBOutlet weak var beerIbu: UILabel!
+    @IBOutlet weak var cartQuantity: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +27,17 @@ class BeerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
+    @IBAction func cartMinusAction(_ sender: UIButton) {
+        
+        cartQuantity.text = String(Int(cartQuantity.text!)! - 1)
+    }
+    
+    
+    @IBAction func cartPlusAction(_ sender: UIButton) {
+        
+        cartQuantity.text = String(Int(cartQuantity.text!)! + 1)
+    }
+    
 }

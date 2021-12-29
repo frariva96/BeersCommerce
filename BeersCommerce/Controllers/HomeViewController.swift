@@ -11,17 +11,12 @@ import Firebase
 var beerListDatabase: [BeerFromDatabase] = []
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-   
-    var beerlistFirebase: DatabaseReference = Database.database().reference().child("beerlist")
 
     var beerViewModel: BeersViewModel!
-    
     var user: String?
 
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +24,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         beerTable.delegate = self
         beerTable.dataSource = self
         searchBarBeer.delegate = self
-        
-        //loadBeersData()
        
+        loadDataFromDatabase()
         
-        
-        
+    }
+    
+    func loadDataFromDatabase() {
         userCart = Database.database().reference().child("cartUser").child(user!)
         
         
@@ -71,30 +66,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         print("BEERLISTHOME: \(beersList.count)")
-        
-        /*beerlistFirebase.observe(.value) { snapshot in
-            
-            for item in snapshot.children {
-                let beerData = item as! DataSnapshot
-                
-                let beer = beerData.value as! [String: Any]
-                
-                print(beer["year"]!)
-                
-            }
-            
-        }*/
-        
-        /*for beer in beersList {
-            beerlistFirebase.child(beer.name).updateChildValues(
-                ["id": beer.id, "name": beer.name, "imageUrl": beer.imageUrl, "description": beer.description, "abv": beer.abv, "ibu": beer.ibu, "firstBrewed": beer.firstBrewed, "foodPairing": beer.foodPairing, "brewersTips": beer.brewersTips])
-        }*/
-        
-    }
-    
-    
-    func loadBeersData () {
-        beerViewModel = BeersViewModel()
     }
     
     
@@ -186,7 +157,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 return result != nil
             })
         }else{
-            loadBeersData()
+            loadDataFromDatabase()
         }
         self.beerTable.reloadData()
     }

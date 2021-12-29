@@ -6,16 +6,15 @@
 //
 
 import UIKit
-
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+import Firebase
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
    
-    
+    var beerlistFirebase: DatabaseReference = Database.database().reference().child("beerlist")
 
     var beerViewModel: BeersViewModel!
 
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!
-    @IBOutlet weak var cartTabBar: UITabBarItem!
     
     
     
@@ -24,10 +23,42 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         beerTable.delegate = self
         beerTable.dataSource = self
+        searchBarBeer.delegate = self
         
         loadBeersData()
         
-        cartTabBar.badgeValue = cartQuantity
+        login()
+        
+        /*beerlistFirebase.observe(.value) { snapshot in
+            
+            for item in snapshot.children {
+                let beerData = item as! DataSnapshot
+                
+                let beer = beerData.value as! [String: Any]
+                
+                print(beer["year"]!)
+                
+            }
+            
+        }*/
+        
+        for beer in beersList {
+            beerlistFirebase.child(beer.name).updateChildValues(
+                ["id": beer.id, "name": beer.name, "imageUrl": beer.imageUrl, "description": beer.description, "abv": beer.abv, "ibu": beer.ibu, "firstBrewed": beer.firstBrewed, "foodPairing": beer.foodPairing, "brewersTips": beer.brewersTips])
+        }
+        
+    }
+    
+    func login () {
+        Auth.auth().signInAnonymously { User, Error in
+            if let error = Error {
+                print(error)
+            }else{
+                if let user = User {
+                    print(user.user.uid)
+                }
+            }
+        }
     }
     
     func loadBeersData () {
@@ -65,11 +96,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        performSegue(withIdentifier: "homeTObeerInfo", sender: beersList[indexPath.row])
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard segue.identifier == "homeTObeerInfo" else {
@@ -77,13 +103,65 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         let vc = segue.destination as! BeerInfoViewController
-        
         let beer = sender as! Beer
-        
         vc.beer = beer
-        
-        
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        searchBarBeer.endEditing(true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        searchBarBeer.setShowsCancelButton(false, animated: true)
+        
+        performSegue(withIdentifier: "homeTObeerInfo", sender: beersList[indexPath.row])
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBarBeer.setShowsCancelButton(true, animated: true)
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBarBeer.text = ""
+        beerTable.reloadData()
+        searchBarBeer.setShowsCancelButton(false, animated: true)
+        searchBarBeer.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBarBeer.endEditing(true)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchBarBeer.endEditing(true)
+    }
+    
+  
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchBarBeer.text!.isEmpty {
+            beersList = beersList.filter({ (word: Beer) -> Bool in
+                let result: Range<String.Index>?
+                let filterName = word.name.range(of: searchBarBeer.text!)
+                let filterDescription = word.description.range(of: searchBarBeer.text!)
+                
+                if filterName != nil {
+                    result = filterName
+                } else {
+                    result = filterDescription
+                }
+                return result != nil
+            })
+        }else{
+            loadBeersData()
+        }
+        self.beerTable.reloadData()
+    }
+    
+    
+    
+    
+    @IBAction func cartAction(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "homeTOcart", sender: nil)
     }
     
 }

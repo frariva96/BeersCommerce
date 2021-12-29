@@ -20,7 +20,7 @@ class APIService {
                 beers = try! JSONDecoder().decode([Beer].self, from: data)
             }
         }
-        print("BEERS: \(beers)")
+        //print("BEERS: \(beers)")
         return beers
     }
 }

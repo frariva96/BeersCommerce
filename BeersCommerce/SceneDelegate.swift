@@ -6,10 +6,15 @@
 //
 
 import UIKit
-
+import Firebase
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    override init() {
+        super.init()
+        FirebaseApp.configure()
+    }
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

@@ -165,7 +165,7 @@
                         <barButtonItem key="leftBarButtonItem" image="arrow.backward.to.line" catalog="system" id="cFD-Gq-QK8">
                             <connections>
                                 <action selector="logoutAction:" destination="fhL-JC-RCz" id="BeM-zG-Zbc"/>
-                                <segue destination="gbU-Ri-4yg" kind="unwind" unwindAction="returnLoginWithSegue:" id="2c3-sc-X6t"/>
+                                <segue destination="gbU-Ri-4yg" kind="unwind" unwindAction="returnLoginWithSegue:" id="Gyh-jg-hn1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Cart" id="er7-oQ-Z79">

@@ -43,18 +43,32 @@ class SignInViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }else{
-                //self.performSegue(withIdentifier: "signinTOhome", sender: nil)
                 
                 self.beerlistFirebase = Database.database().reference().child("cartUser").child((user?.user.uid)!)
                 
                 for beer in beersList {
-                    self.beerlistFirebase!.child(beer.name).updateChildValues(
-                        ["id": beer.id, "name": beer.name, "imageUrl": beer.imageUrl, "description": beer.description, "abv": beer.abv, "ibu": beer.ibu, "firstBrewed": beer.firstBrewed, "foodPairing": beer.foodPairing, "brewersTips": beer.brewersTips, "quantity": 0])
+                    
+                    if beer.id != 22 {
+                        self.beerlistFirebase!.child(beer.name).updateChildValues(
+                            ["id": beer.id, "name": beer.name, "imageUrl": beer.imageUrl, "description": beer.description, "abv": beer.abv, "ibu": beer.ibu, "firstBrewed": beer.firstBrewed, "foodPairing": beer.foodPairing, "brewersTips": beer.brewersTips, "quantity": "0"])
+                    }
                 }
                 
+                self.usernameTxt.text = ""
+                self.passwordTxt.text = ""
                 
+                self.performSegue(withIdentifier: "signinTOhome", sender: user?.user.uid)
             }
-            
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "signinTOhome" else {
+            return
+        }
+        
+        let nav = segue.destination as! UINavigationController
+        let vc = nav.topViewController as! HomeViewController
+        vc.user = sender as? String
     }
 }

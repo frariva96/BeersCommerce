@@ -56,6 +56,9 @@ class LoginViewController: UIViewController {
             return
         }
         
+        let nav = segue.destination as! UINavigationController
+        let vc = nav.topViewController as! HomeViewController
+        vc.user = sender as? String
         
     }
     

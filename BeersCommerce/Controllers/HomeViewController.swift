@@ -16,7 +16,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     var beerViewModel: BeersViewModel!
     
-    var user: String? = "0IIpz74G3jWgFdfAaXtT032VuRn1"
+    var user: String?
 
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!

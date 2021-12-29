@@ -79,6 +79,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.beerAbv.text = beersList[indexPath.row].abv + "% VOL."
         cell.beerIbu.text = beersList[indexPath.row].ibu
         
+        cell.idBeerLabel.text = String(beersList[indexPath.row].id)
+        
         
         
         // caricamento asincrono delle immagini

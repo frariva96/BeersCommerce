@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
 var cartQuantity: String?
 
 class BeerTableViewCell: UITableViewCell {
+    
+    var cartlistFirebase: DatabaseReference = Database.database().reference().child("cartlist")
     
     
     @IBOutlet weak var beerImage: UIImageView!
@@ -18,6 +21,7 @@ class BeerTableViewCell: UITableViewCell {
     @IBOutlet weak var beerAbv: UILabel!
     @IBOutlet weak var beerIbu: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
+    @IBOutlet weak var idBeerLabel: UILabel!
     
     
     
@@ -40,7 +44,10 @@ class BeerTableViewCell: UITableViewCell {
         cartQuantityLabel.text = cartQuantity!
         
         print(cartQuantity!)
+        print(idBeerLabel.text!)
         
+        
+        cartlistFirebase.child("userOne").updateChildValues(["idBeer": idBeerLabel.text!, "quantity": cartQuantity! ])
         
     }
     
@@ -52,6 +59,9 @@ class BeerTableViewCell: UITableViewCell {
         cartQuantityLabel.text = cartQuantity!
         
         print(cartQuantity!)
+        print(idBeerLabel.text!)
+        
+        cartlistFirebase.child("userOne").updateChildValues(["idBeer": idBeerLabel.text!, "quantity": cartQuantity! ])
     }
     
     

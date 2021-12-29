@@ -7,11 +7,16 @@
 
 import UIKit
 import Firebase
+
+var beerListDatabase: [BeerFromDatabase] = []
+
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
    
     var beerlistFirebase: DatabaseReference = Database.database().reference().child("beerlist")
 
     var beerViewModel: BeersViewModel!
+    
+    var user: String? = "0IIpz74G3jWgFdfAaXtT032VuRn1"
 
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!
@@ -25,9 +30,47 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         beerTable.dataSource = self
         searchBarBeer.delegate = self
         
-        loadBeersData()
+        //loadBeersData()
+       
         
-        login()
+        
+        
+        userCart = Database.database().reference().child("cartUser").child(user!)
+        
+        
+        userCart?.observe(.value) { snapshot in
+            
+            beerListDatabase = []
+            
+            for item in snapshot.children {
+                let beerData = item as! DataSnapshot
+                
+                let beer = beerData.value as! [String: Any]
+                
+                print("BEER DATA: \(beerData)")
+                
+                beerListDatabase.append(BeerFromDatabase(
+                    id: beer["id"] as! Int,
+                    name: beer["name"] as! String,
+                    imageUrl: beer["imageUrl"] as! String,
+                    description: beer["description"] as! String,
+                    abv: beer["abv"] as! String,
+                    ibu: beer["ibu"] as! String,
+                    firstBrewed: beer["firstBrewed"] as! String,
+                    foodPairing: beer["foodPairing"] as! [String],
+                    brewersTips: beer["brewersTips"] as! String,
+                    quantity: beer["quantity"] as! String)
+                )
+                
+                print("BEERLIST: \(beersList.count)")
+                
+            }
+            
+            self.beerTable.reloadData()
+        
+        }
+        
+        print("BEERLISTHOME: \(beersList.count)")
         
         /*beerlistFirebase.observe(.value) { snapshot in
             
@@ -49,17 +92,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func login () {
-        Auth.auth().signInAnonymously { User, Error in
-            if let error = Error {
-                print(error)
-            }else{
-                if let user = User {
-                    print(user.user.uid)
-                }
-            }
-        }
-    }
     
     func loadBeersData () {
         beerViewModel = BeersViewModel()
@@ -67,24 +99,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beersList.count
+        return beerListDatabase.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "beerCell", for: indexPath) as! BeerTableViewCell
         
-        cell.beerTitle.text = beersList[indexPath.row].name
-        cell.beerDescription.text = beersList[indexPath.row].description
-        cell.beerAbv.text = beersList[indexPath.row].abv + "% VOL."
-        cell.beerIbu.text = beersList[indexPath.row].ibu
+        cell.beerTitle.text = beerListDatabase[indexPath.row].name
+        cell.beerDescription.text = beerListDatabase[indexPath.row].description
+        cell.beerAbv.text = beerListDatabase[indexPath.row].abv + "% VOL."
+        cell.beerIbu.text = beerListDatabase[indexPath.row].ibu
+        cell.cartQuantityLabel.text = beerListDatabase[indexPath.row].quantity
         
-        cell.idBeerLabel.text = String(beersList[indexPath.row].id)
+        cell.idBeerLabel.text = String(beerListDatabase[indexPath.row].id)
         
         
         
         // caricamento asincrono delle immagini
-       if let url = NSURL(string: beersList[indexPath.row].imageUrl) {
+       if let url = NSURL(string: beerListDatabase[indexPath.row].imageUrl) {
             DispatchQueue.global(qos: .default).async{
                 if let data = NSData(contentsOf: url as URL) {
                     DispatchQueue.main.async {
@@ -115,7 +148,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         searchBarBeer.setShowsCancelButton(false, animated: true)
         
-        performSegue(withIdentifier: "homeTObeerInfo", sender: beersList[indexPath.row])
+        performSegue(withIdentifier: "homeTObeerInfo", sender: beerListDatabase[indexPath.row])
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -140,7 +173,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
   
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchBarBeer.text!.isEmpty {
-            beersList = beersList.filter({ (word: Beer) -> Bool in
+            beerListDatabase = beerListDatabase.filter({ (word: BeerFromDatabase) -> Bool in
                 let result: Range<String.Index>?
                 let filterName = word.name.range(of: searchBarBeer.text!)
                 let filterDescription = word.description.range(of: searchBarBeer.text!)

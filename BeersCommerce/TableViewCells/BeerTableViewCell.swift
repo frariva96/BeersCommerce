@@ -12,7 +12,7 @@ var cartQuantity: String?
 
 class BeerTableViewCell: UITableViewCell {
     
-    var cartlistFirebase: DatabaseReference = Database.database().reference().child("cartlist")
+    //var cartlistFirebase: DatabaseReference = Database.database().reference().child("cartlist")
     
     
     @IBOutlet weak var beerImage: UIImageView!
@@ -41,13 +41,13 @@ class BeerTableViewCell: UITableViewCell {
         
         cartQuantity = String(Int(cartQuantityLabel.text!)! - 1)
         
-        cartQuantityLabel.text = cartQuantity!
+        //cartQuantityLabel.text = cartQuantity!
         
         print(cartQuantity!)
         print(idBeerLabel.text!)
         
         
-        cartlistFirebase.child(beerTitle.text!).updateChildValues(["idBeer": idBeerLabel.text!, "name": beerTitle.text!, "quantity": cartQuantity! ])
+        userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
         
         
     }
@@ -57,15 +57,11 @@ class BeerTableViewCell: UITableViewCell {
         
         cartQuantity = String(Int(cartQuantityLabel.text!)! + 1)
         
-        cartQuantityLabel.text = cartQuantity!
+        //cartQuantityLabel.text = cartQuantity!
         
         print(cartQuantity!)
         print(idBeerLabel.text!)
         
-        cartlistFirebase.child(beerTitle.text!).updateChildValues(["idBeer": idBeerLabel.text!, "name": beerTitle.text!, "quantity": cartQuantity! ])
-        
+        userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
     }
-    
-    
-    
 }

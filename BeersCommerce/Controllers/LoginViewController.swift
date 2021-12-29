@@ -7,8 +7,9 @@
 
 import UIKit
 import Firebase
+
+var userCart: DatabaseReference?
 class LoginViewController: UIViewController {
-    
     
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
@@ -41,11 +42,24 @@ class LoginViewController: UIViewController {
             }else{
                 self.usernameTxt.text = ""
                 self.passwordTxt.text = ""
-                self.performSegue(withIdentifier: "loginTOhome", sender: nil)
+                
+                
+                self.performSegue(withIdentifier: "loginTOhome", sender: user?.user.uid)
             }
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "loginTOhome" else {
+            return
+        }
+        
+        
+    }
+    
+    
     
     @IBAction func returnLogin(segue: UIStoryboardSegue) {
         

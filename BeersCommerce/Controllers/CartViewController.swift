@@ -28,7 +28,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         cartTable.dataSource = self
         
         
-        cartListFirebase.observe(.value) { snapshot in
+        userCart!.observe(.value) { snapshot in
             
             self.cart = []
             
@@ -37,9 +37,14 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 let cartItem = cartData.value as! [String: Any]
                 
-                print("\(String(describing: cartItem["idBeer"]!)) \(String(describing: cartItem["quantity"]!))")
+                print("\(String(describing: cartItem["name"]!)) \(String(describing: cartItem["quantity"]!))")
                 
-                self.cart.append(CartItem(id: String(describing: cartItem["idBeer"]!), name: String(describing: cartItem["name"]!), quantity: String(describing: cartItem["quantity"]!)))
+                
+                if cartItem["quantity"]! as! String != "0" {
+                    self.cart.append(CartItem(id: String(describing: cartItem["id"]!), name: String(describing: cartItem["name"]!), quantity: String(describing: cartItem["quantity"]!)))
+                }
+                
+                
                 
             }
             

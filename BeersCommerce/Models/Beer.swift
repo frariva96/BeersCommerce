@@ -54,4 +54,30 @@ struct Beer: Codable {
             self.ibu = "N/A"
         }
     }
+    
+    init(id: Int, name: String, imageUrl: String, description: String, abv: String, ibu: String, firstBrewed: String, foodPairing: [String], brewersTips: String) {
+        self.id = id
+        self.name = name
+        self.imageUrl = imageUrl
+        self.description = description
+        self.abv = abv
+        self.ibu = ibu
+        self.firstBrewed = firstBrewed
+        self.foodPairing = foodPairing
+        self.brewersTips = brewersTips
+    }
+}
+
+
+struct BeerFromDatabase {
+    var id: Int
+    var name: String
+    var imageUrl: String
+    var description: String
+    var abv: String
+    var ibu: String
+    var firstBrewed: String
+    var foodPairing: [String]
+    var brewersTips: String
+    var quantity: String
 }

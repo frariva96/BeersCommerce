@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="hoR-70-TqF">
             <objects>
-                <viewController title="Home" id="fhL-JC-RCz" customClass="HomeViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" modalPresentationStyle="fullScreen" id="fhL-JC-RCz" customClass="HomeViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cTC-E4-I3z">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,7 +345,7 @@
         <!--Cart-->
         <scene sceneID="rfr-Wx-EOj">
             <objects>
-                <viewController id="Dxu-zb-YtK" customClass="CartViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Dxu-zb-YtK" customClass="CartViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9M-RY-GJC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -402,7 +402,7 @@
         <!--Info Beer-->
         <scene sceneID="pPD-hw-txr">
             <objects>
-                <viewController id="agJ-Gd-sjX" customClass="BeerInfoViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="agJ-Gd-sjX" customClass="BeerInfoViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s2f-CM-52a">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

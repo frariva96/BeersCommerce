@@ -42,10 +42,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }*/
         
-        for beer in beersList {
+        /*for beer in beersList {
             beerlistFirebase.child(beer.name).updateChildValues(
                 ["id": beer.id, "name": beer.name, "imageUrl": beer.imageUrl, "description": beer.description, "abv": beer.abv, "ibu": beer.ibu, "firstBrewed": beer.firstBrewed, "foodPairing": beer.foodPairing, "brewersTips": beer.brewersTips])
-        }
+        }*/
         
     }
     

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9BBB296C277C7DC200D61E2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB296B277C7DC200D61E2E /* GoogleService-Info.plist */; };
+		9BBB296E277CA8B500D61E2E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB296D277CA8B500D61E2E /* CartViewController.swift */; };
+		9BBB2970277CAB9800D61E2E /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB296F277CAB9800D61E2E /* CartItem.swift */; };
 		9BE75813277B28AA00ABB88B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE75812277B28AA00ABB88B /* AppDelegate.swift */; };
 		9BE75815277B28AA00ABB88B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE75814277B28AA00ABB88B /* SceneDelegate.swift */; };
 		9BE75817277B28AA00ABB88B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE75816277B28AA00ABB88B /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 		857CFAF17753EADEC2E0F95C /* Pods-BeersCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersCommerce.release.xcconfig"; path = "Target Support Files/Pods-BeersCommerce/Pods-BeersCommerce.release.xcconfig"; sourceTree = "<group>"; };
 		92B1273620A2A27C0C350309 /* Pods-BeersCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersCommerce.debug.xcconfig"; path = "Target Support Files/Pods-BeersCommerce/Pods-BeersCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		9BBB296B277C7DC200D61E2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9BBB296D277CA8B500D61E2E /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		9BBB296F277CAB9800D61E2E /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		9BE7580F277B28AA00ABB88B /* BeersCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeersCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE75812277B28AA00ABB88B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE75814277B28AA00ABB88B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				9BF2C7DF277B2D1C000743B3 /* HomeViewController.swift */,
 				9BF2C7E3277B62C4000743B3 /* BeerInfoViewController.swift */,
+				9BBB296D277CA8B500D61E2E /* CartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				9BF2C7DD277B2C72000743B3 /* Beer.swift */,
+				9BBB296F277CAB9800D61E2E /* CartItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +276,8 @@
 			files = (
 				9BF2C7E4277B62C4000743B3 /* BeerInfoViewController.swift in Sources */,
 				9BF2C7DA277B2C38000743B3 /* BeersViewModel.swift in Sources */,
+				9BBB2970277CAB9800D61E2E /* CartItem.swift in Sources */,
+				9BBB296E277CA8B500D61E2E /* CartViewController.swift in Sources */,
 				9BF2C7DE277B2C72000743B3 /* Beer.swift in Sources */,
 				9BF2C7DC277B2C57000743B3 /* APIService.swift in Sources */,
 				9BF2C7E2277B4E3F000743B3 /* BeerTableViewCell.swift in Sources */,

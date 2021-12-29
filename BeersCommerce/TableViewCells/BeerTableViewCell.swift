@@ -47,7 +47,8 @@ class BeerTableViewCell: UITableViewCell {
         print(idBeerLabel.text!)
         
         
-        cartlistFirebase.child("userOne").updateChildValues(["idBeer": idBeerLabel.text!, "quantity": cartQuantity! ])
+        cartlistFirebase.child(beerTitle.text!).updateChildValues(["idBeer": idBeerLabel.text!, "name": beerTitle.text!, "quantity": cartQuantity! ])
+        
         
     }
     
@@ -61,7 +62,8 @@ class BeerTableViewCell: UITableViewCell {
         print(cartQuantity!)
         print(idBeerLabel.text!)
         
-        cartlistFirebase.child("userOne").updateChildValues(["idBeer": idBeerLabel.text!, "quantity": cartQuantity! ])
+        cartlistFirebase.child(beerTitle.text!).updateChildValues(["idBeer": idBeerLabel.text!, "name": beerTitle.text!, "quantity": cartQuantity! ])
+        
     }
     
     

@@ -10,6 +10,8 @@
 		9BBB296C277C7DC200D61E2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB296B277C7DC200D61E2E /* GoogleService-Info.plist */; };
 		9BBB296E277CA8B500D61E2E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB296D277CA8B500D61E2E /* CartViewController.swift */; };
 		9BBB2970277CAB9800D61E2E /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB296F277CAB9800D61E2E /* CartItem.swift */; };
+		9BBB2972277CB1D600D61E2E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB2971277CB1D600D61E2E /* SignInViewController.swift */; };
+		9BBB2974277CB1DE00D61E2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB2973277CB1DE00D61E2E /* LoginViewController.swift */; };
 		9BE75813277B28AA00ABB88B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE75812277B28AA00ABB88B /* AppDelegate.swift */; };
 		9BE75815277B28AA00ABB88B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE75814277B28AA00ABB88B /* SceneDelegate.swift */; };
 		9BE75817277B28AA00ABB88B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE75816277B28AA00ABB88B /* ViewController.swift */; };
@@ -31,6 +33,8 @@
 		9BBB296B277C7DC200D61E2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9BBB296D277CA8B500D61E2E /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		9BBB296F277CAB9800D61E2E /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		9BBB2971277CB1D600D61E2E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		9BBB2973277CB1DE00D61E2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9BE7580F277B28AA00ABB88B /* BeersCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeersCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE75812277B28AA00ABB88B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE75814277B28AA00ABB88B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				9BF2C7DF277B2D1C000743B3 /* HomeViewController.swift */,
 				9BF2C7E3277B62C4000743B3 /* BeerInfoViewController.swift */,
 				9BBB296D277CA8B500D61E2E /* CartViewController.swift */,
+				9BBB2971277CB1D600D61E2E /* SignInViewController.swift */,
+				9BBB2973277CB1DE00D61E2E /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,8 +288,10 @@
 				9BF2C7DC277B2C57000743B3 /* APIService.swift in Sources */,
 				9BF2C7E2277B4E3F000743B3 /* BeerTableViewCell.swift in Sources */,
 				9BE75817277B28AA00ABB88B /* ViewController.swift in Sources */,
+				9BBB2972277CB1D600D61E2E /* SignInViewController.swift in Sources */,
 				9BE75813277B28AA00ABB88B /* AppDelegate.swift in Sources */,
 				9BF2C7E0277B2D1C000743B3 /* HomeViewController.swift in Sources */,
+				9BBB2974277CB1DE00D61E2E /* LoginViewController.swift in Sources */,
 				9BE75815277B28AA00ABB88B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

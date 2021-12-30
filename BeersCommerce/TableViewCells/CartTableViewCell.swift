@@ -20,14 +20,14 @@ class CartTableViewCell: UITableViewCell {
     
     @IBAction func cartMinusAction(_ sender: UIButton) {
         
-        //cartQuantity = Int(cartQuantityLabel.text!)! - 1
-        //userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
+        cartQuantity = Int(quantityLabel.text!)! - 1
+        userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
     }
     
     @IBAction func cartPlusAction(_ sender: UIButton) {
         
-        //cartQuantity = Int(cartQuantityLabel.text!)! + 1
-        //userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
+        cartQuantity = Int(quantityLabel.text!)! + 1
+        userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
     }
     
 

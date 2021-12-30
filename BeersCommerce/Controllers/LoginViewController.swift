@@ -9,6 +9,8 @@ import UIKit
 import Firebase
 
 var userCart: DatabaseReference?
+var emailUser: String?
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTxt: UITextField!
@@ -34,6 +36,9 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 
             }else{
+                
+                emailUser = self.usernameTxt.text
+                
                 self.usernameTxt.text = ""
                 self.passwordTxt.text = ""
                 self.performSegue(withIdentifier: "loginTOhome", sender: user?.user.uid)

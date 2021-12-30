@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     var cartItemTabBar: UITabBarItem?
-    var user: String? = "NhoqolKV5lfcEGRSasV7PEpZL862"
+    var user: String? //= "NhoqolKV5lfcEGRSasV7PEpZL862"
     
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!

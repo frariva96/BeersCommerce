@@ -7,9 +7,11 @@
 
 import UIKit
 import Firebase
+import MessageUI
+import SafariServices
 
 var tot: Int? = 0
-class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     //var cartListFirebase: DatabaseReference = Database.database().reference().child("cartlist")
     
@@ -29,7 +31,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             tabBarController?.tabBar.standardAppearance = appearance
             tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBar.standardAppearance
         }
-        
         
         cartTable.delegate = self
         cartTable.dataSource = self
@@ -66,6 +67,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             self.cartTabBar.badgeValue = String(tot!)
+            self.totalPiecesLabel.text = String(tot!)
             self.cartTable.reloadData()
         }
     }
@@ -97,11 +99,88 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBAction func sendOrdeAction(_ sender: UIButton) {
+        //performSegue(withIdentifier: "cartTOsendEmail", sender: cart)
+        sendEmail(recipient: emailUser!, text: composeTextMail())
+        clearCart()
         
-        performSegue(withIdentifier: "cartTOsendEmail", sender: nil)
     }
+    
+    
+    func sendEmail(recipient: String, text: String){
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([recipient])
+            mail.setMessageBody(text, isHTML: false)
+            mail.setSubject("BEERS CART")
+            
+            present(mail, animated: true, completion: nil)
+        }else{
+            guard let url = URL(string: "https://www.google.com") else {
+                return
+            }
+            let vc = SFSafariViewController(url: url)
+            
+            present(vc, animated: true)
+            
+        }
+    }
+    
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func composeTextMail() -> String {
+        var result: String = ""
+        var totBeers = 0
+        
+        for el in cart {
+            let bulletPoint: String = "\u{2022}"
+            let formattedString: String = "\(bulletPoint)\(el.name) x \(el.quantity)\n"
+            result = result + formattedString
+            totBeers += el.quantity
+        }
+        
+        result += "\n Total pieces: \(totBeers)"
+        
+        return result
+    }
+    
+    func clearCart() {
+        
+        for el in cart {
+            userCart!.child(el.name).updateChildValues(["quantity": 0 ])
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "cartTOsendEmail" else {
+            return
+        }
+        
+        let vc = segue.destination as! SendEmailOrderViewController
+
+        vc.orderDetails = sender as! [CartItem]
+    }
+    
+    
     
     @IBAction func returnTOCart(sender: UIStoryboardSegue) {
         
-    }
+    }*/
 }

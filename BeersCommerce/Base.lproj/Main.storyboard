@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="htg-Nb-3Jx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zpN-Ix-C3D">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -458,7 +458,6 @@
                         <outlet property="cartTabBar" destination="G2o-uF-iEV" id="HtC-SD-izu"/>
                         <outlet property="cartTable" destination="bv9-XF-1DG" id="BhR-LI-dvg"/>
                         <outlet property="totalPiecesLabel" destination="hfg-AN-cYl" id="fTg-nM-Wyq"/>
-                        <segue destination="lCu-7h-Kyk" kind="show" identifier="cartTOsendEmail" id="4lM-cx-com"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZb-9g-QbX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -563,55 +562,6 @@
             </objects>
             <point key="canvasLocation" x="1544.8598130841121" y="174.94600431965443"/>
         </scene>
-        <!--Send Email Order View Controller-->
-        <scene sceneID="l9f-Rc-fw2">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="lCu-7h-Kyk" customClass="SendEmailOrderViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cW0-Cl-Kzr">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFl-EU-2oE">
-                                <rect key="frame" x="166" y="429" width="97" height="69"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cart"/>
-                                <connections>
-                                    <segue destination="dGh-Tm-2RW" kind="unwind" unwindAction="returnTOCartWithSender:" id="vP0-Ku-cfC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-DY-ovs">
-                                <rect key="frame" x="166" y="564" width="97" height="69"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Email"/>
-                                <connections>
-                                    <action selector="sendEmailAction:" destination="lCu-7h-Kyk" eventType="touchUpInside" id="zPH-ZF-SnQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="ifV-Xk-eZ4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="CFl-EU-2oE" firstAttribute="centerX" secondItem="cW0-Cl-Kzr" secondAttribute="centerX" id="4xb-Bn-SqZ"/>
-                            <constraint firstItem="ifV-Xk-eZ4" firstAttribute="bottom" secondItem="0pe-DY-ovs" secondAttribute="bottom" constant="259" id="7V3-pg-dr4"/>
-                            <constraint firstItem="0pe-DY-ovs" firstAttribute="leading" secondItem="CFl-EU-2oE" secondAttribute="leading" id="9BY-h3-moj"/>
-                            <constraint firstItem="0pe-DY-ovs" firstAttribute="top" secondItem="CFl-EU-2oE" secondAttribute="bottom" constant="66" id="JUT-hD-Z8g"/>
-                            <constraint firstItem="0pe-DY-ovs" firstAttribute="trailing" secondItem="CFl-EU-2oE" secondAttribute="trailing" id="LL9-xl-fep"/>
-                            <constraint firstItem="CFl-EU-2oE" firstAttribute="centerY" secondItem="cW0-Cl-Kzr" secondAttribute="centerY" id="dON-J8-whe"/>
-                            <constraint firstItem="CFl-EU-2oE" firstAttribute="top" secondItem="ifV-Xk-eZ4" secondAttribute="top" constant="385" id="odU-xZ-MZH"/>
-                            <constraint firstItem="CFl-EU-2oE" firstAttribute="leading" secondItem="ifV-Xk-eZ4" secondAttribute="leading" constant="166" id="pS0-9O-EUc"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Re0-mv-qV5"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7cy-kF-Cm0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="dGh-Tm-2RW" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="783.64485981308405" y="1728.7257019438446"/>
-        </scene>
         <!--Beers-->
         <scene sceneID="G5Z-fa-LTu">
             <objects>
@@ -654,9 +604,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

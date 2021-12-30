@@ -57,6 +57,7 @@ class SignInViewController: UIViewController {
                     }
                 }
                 
+                emailUser = self.usernameTxt.text
                 self.usernameTxt.text = ""
                 self.passwordTxt.text = ""
                 self.performSegue(withIdentifier: "signinTOhome", sender: user?.user.uid)

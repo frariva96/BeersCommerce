@@ -9,11 +9,26 @@ import UIKit
 import MessageUI
 import SafariServices
 class SendEmailOrderViewController: UIViewController, MFMailComposeViewControllerDelegate{
+    
+    var orderDetails: [CartItem] = []
+    
+    var textMail: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        // Do any additional setup after loading the view.
+        var result: String = ""
+        var totBeers = 0
+        
+        for el in orderDetails {
+            let bulletPoint: String = "\u{2022}"
+            let formattedString: String = "\(bulletPoint)\(el.name) x \(el.quantity)\n"
+            result = result + formattedString
+            totBeers += el.quantity
+        }
+        
+        textMail = result + "\n Total pieces: \(totBeers)"
     }
     
     
@@ -24,6 +39,7 @@ class SendEmailOrderViewController: UIViewController, MFMailComposeViewControlle
             mail.mailComposeDelegate = self
             mail.setToRecipients([recipient])
             mail.setMessageBody(text, isHTML: false)
+            mail.setSubject("BEERS CART")
             
             present(mail, animated: true, completion: nil)
         }else{
@@ -43,9 +59,8 @@ class SendEmailOrderViewController: UIViewController, MFMailComposeViewControlle
     }
     
     
-    @IBAction func sendEmailAction(_ sender: UIButton) {
-        
-        sendEmail(recipient: "friva.73@gmail.com", text: "CIAO")
-    }
+    /*@IBAction func sendEmailAction(_ sender: UIButton) {
+        sendEmail(recipient: emailUser!, text: textMail!)
+    }*/
     
 }

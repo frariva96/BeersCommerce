@@ -426,7 +426,7 @@
             </objects>
             <point key="canvasLocation" x="785.04672897196258" y="945.35637149028082"/>
         </scene>
-        <!--Beer Info View Controller-->
+        <!--Info Beer-->
         <scene sceneID="pPD-hw-txr">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="agJ-Gd-sjX" customClass="BeerInfoViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -494,7 +494,7 @@
                             <constraint firstItem="imX-Iy-XD2" firstAttribute="leading" secondItem="Nhj-e4-OEZ" secondAttribute="leading" constant="20" id="xX2-r4-zdU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="i4F-7v-Eaj"/>
+                    <navigationItem key="navigationItem" title="Info Beer" id="i4F-7v-Eaj"/>
                     <connections>
                         <outlet property="brewersTipsLabel" destination="ugW-63-dH9" id="KcA-AO-gdU"/>
                         <outlet property="firstBrewedLabel" destination="VlC-rL-rt0" id="zol-Ev-kGy"/>
@@ -535,6 +535,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gyd-s8-TZ8">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

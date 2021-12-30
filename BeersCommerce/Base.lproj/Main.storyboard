@@ -159,11 +159,6 @@
                                 <segue destination="gbU-Ri-4yg" kind="unwind" unwindAction="returnLoginWithSegue:" id="dAO-b5-2NJ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cart" id="er7-oQ-Z79">
-                            <connections>
-                                <action selector="cartAction:" destination="fhL-JC-RCz" id="08R-vT-1Y5"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="beerTable" destination="AMn-HD-Fox" id="WG2-Rg-mWB"/>
@@ -344,25 +339,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="789"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="200" id="a9U-TU-Pb6" customClass="CartTableViewCell" customModule="BeersCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="149" id="a9U-TU-Pb6" customClass="CartTableViewCell" customModule="BeersCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9U-TU-Pb6" id="5I7-oK-OJm">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hvS-9k-W7J">
-                                                    <rect key="frame" x="20" y="11" width="127" height="178"/>
+                                                    <rect key="frame" x="20" y="10" width="110" height="128"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleBeer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-tF-sIf">
-                                                    <rect key="frame" x="155" y="56" width="253" height="38"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="0XI-eb-deq">
-                                                    <rect key="frame" x="217" y="141" width="129" height="30.666666666666657"/>
+                                                    <rect key="frame" x="209" y="83" width="129" height="30.666666666666671"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvb-1o-Mu0">
                                                             <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="30.666666666666668"/>
@@ -386,23 +375,29 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="Xec-fd-kmP" firstAttribute="centerX" secondItem="0XI-eb-deq" secondAttribute="centerX" id="dKy-ng-PXG"/>
+                                                        <constraint firstItem="Xec-fd-kmP" firstAttribute="centerX" secondItem="0XI-eb-deq" secondAttribute="centerX" id="nt1-jW-euB"/>
                                                     </constraints>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleBeer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5sv-hL-r21">
+                                                    <rect key="frame" x="147" y="23" width="253" height="38"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0XI-eb-deq" firstAttribute="leading" secondItem="hvS-9k-W7J" secondAttribute="trailing" constant="70" id="7rn-Dm-Lxs"/>
-                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="leading" secondItem="hvS-9k-W7J" secondAttribute="trailing" constant="8" symbolic="YES" id="LqG-RP-ORP"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="0XI-eb-deq" secondAttribute="bottom" constant="17.333333333333343" id="Ocg-EB-DHq"/>
-                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="centerX" secondItem="0XI-eb-deq" secondAttribute="centerX" id="asE-S8-AfJ"/>
-                                                <constraint firstItem="0XI-eb-deq" firstAttribute="top" secondItem="qLK-tF-sIf" secondAttribute="bottom" constant="47" id="j33-hH-Pgl"/>
-                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="top" secondItem="5I7-oK-OJm" secondAttribute="topMargin" constant="45" id="jj2-fD-6F1"/>
-                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="trailing" secondItem="5I7-oK-OJm" secondAttribute="trailingMargin" id="qUP-F4-g6K"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5sv-hL-r21" secondAttribute="trailing" constant="8" id="2Cc-aj-XbT"/>
+                                                <constraint firstItem="0XI-eb-deq" firstAttribute="leading" secondItem="hvS-9k-W7J" secondAttribute="trailing" constant="79" id="5sp-lk-Jth"/>
+                                                <constraint firstItem="5sv-hL-r21" firstAttribute="leading" secondItem="hvS-9k-W7J" secondAttribute="trailing" constant="17" id="bK2-jP-ZRK"/>
+                                                <constraint firstItem="0XI-eb-deq" firstAttribute="top" secondItem="5sv-hL-r21" secondAttribute="bottom" constant="22" id="h87-E7-yFT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0XI-eb-deq" secondAttribute="bottom" constant="24.333333333333329" id="mUc-py-6aK"/>
+                                                <constraint firstItem="5sv-hL-r21" firstAttribute="top" secondItem="5I7-oK-OJm" secondAttribute="topMargin" constant="12" id="tmi-PK-fxR"/>
+                                                <constraint firstItem="5sv-hL-r21" firstAttribute="centerX" secondItem="0XI-eb-deq" secondAttribute="centerX" id="wGa-ra-exz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="beerImage" destination="hvS-9k-W7J" id="6xw-f5-Rbv"/>
-                                            <outlet property="beerTitle" destination="qLK-tF-sIf" id="hiV-x0-3Hp"/>
+                                            <outlet property="beerTitle" destination="5sv-hL-r21" id="6C8-ac-ple"/>
                                             <outlet property="quantityLabel" destination="Xec-fd-kmP" id="dIP-pK-UPd"/>
                                         </connections>
                                     </tableViewCell>
@@ -412,10 +407,10 @@
                         <viewLayoutGuide key="safeArea" id="nmq-IA-K92"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bv9-XF-1DG" firstAttribute="bottom" secondItem="nmq-IA-K92" secondAttribute="bottom" id="5fX-aE-9Rg"/>
-                            <constraint firstItem="bv9-XF-1DG" firstAttribute="top" secondItem="nmq-IA-K92" secondAttribute="top" id="Xx1-v2-lIp"/>
-                            <constraint firstItem="bv9-XF-1DG" firstAttribute="leading" secondItem="nmq-IA-K92" secondAttribute="leading" id="fH3-Zj-UxA"/>
-                            <constraint firstItem="nmq-IA-K92" firstAttribute="trailing" secondItem="bv9-XF-1DG" secondAttribute="trailing" id="nzi-TA-hLb"/>
+                            <constraint firstItem="bv9-XF-1DG" firstAttribute="leading" secondItem="b9M-RY-GJC" secondAttribute="leading" id="MTV-Gl-Mmh"/>
+                            <constraint firstItem="bv9-XF-1DG" firstAttribute="top" secondItem="nmq-IA-K92" secondAttribute="top" id="QXY-o2-DbZ"/>
+                            <constraint firstAttribute="trailing" secondItem="bv9-XF-1DG" secondAttribute="trailing" id="o4M-7Q-Nqe"/>
+                            <constraint firstItem="bv9-XF-1DG" firstAttribute="bottom" secondItem="nmq-IA-K92" secondAttribute="bottom" id="u35-LR-pjy"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" id="G2o-uF-iEV">

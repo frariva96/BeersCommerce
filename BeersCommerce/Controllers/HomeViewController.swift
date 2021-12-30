@@ -13,7 +13,8 @@ var beerListDatabase: [BeerFromDatabase] = []
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     var user: String? = "ybRYhEPYMAWCSAQcTzO70KO2OTD3"
-
+    var cartItemTabBar: UITabBarItem?
+    
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!
     
@@ -26,7 +27,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //navigationController?.navigationBar.isHidden = true
         
         loadDataFromDatabase()
-        
+        cartItemTabBar = tabBarController?.tabBar.items![1]
     }
     
     func loadDataFromDatabase() {
@@ -35,11 +36,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         userCart?.observe(.value) { snapshot in
             
             beerListDatabase = []
+            tot = 0
             
             for item in snapshot.children {
                 
                 let beerData = item as! DataSnapshot
                 let beer = beerData.value as! [String: Any]
+                
+                tot! += beer["quantity"] as! Int
                 
                 beerListDatabase.append(BeerFromDatabase(
                     id: beer["id"] as! Int,
@@ -54,6 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     quantity: beer["quantity"] as! Int)
                 )
             }
+            self.cartItemTabBar?.badgeValue = String(tot!)
             self.beerTable.reloadData()
         }
     }

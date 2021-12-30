@@ -388,6 +388,7 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Cart" id="7z3-w4-MbL"/>
                     <connections>
+                        <outlet property="cartTabBar" destination="G2o-uF-iEV" id="HtC-SD-izu"/>
                         <outlet property="cartTable" destination="bv9-XF-1DG" id="BhR-LI-dvg"/>
                     </connections>
                 </viewController>
@@ -497,7 +498,7 @@
         <!--Home-->
         <scene sceneID="8D4-8J-wiO">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="htg-Nb-3Jx" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="htg-Nb-3Jx" customClass="TabBarViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Home" id="2n4-AB-sXV"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UHC-9b-IuC">

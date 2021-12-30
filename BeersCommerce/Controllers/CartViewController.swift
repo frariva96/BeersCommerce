@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+var tot: Int? = 0
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var cartListFirebase: DatabaseReference = Database.database().reference().child("cartlist")
@@ -15,6 +16,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var cart: [CartItem] = []
     
     @IBOutlet weak var cartTable: UITableView!
+    @IBOutlet weak var cartTabBar: UITabBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         userCart!.observe(.value) { snapshot in
             
             self.cart = []
+            tot = 0
             
             for item in snapshot.children {
                 
@@ -34,8 +37,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 if cartItem["quantity"] as! Int > 0 {
                     self.cart.append(CartItem(id: String(describing: cartItem["id"]!), name: String(describing: cartItem["name"]!), quantity: cartItem["quantity"] as! Int))
+                    
+                    tot! += cartItem["quantity"] as! Int
                 }
             }
+            self.cartTabBar.badgeValue = String(tot!)
             self.cartTable.reloadData()
         }
     }

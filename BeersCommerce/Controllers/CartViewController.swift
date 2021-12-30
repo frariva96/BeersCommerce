@@ -17,6 +17,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var cartTable: UITableView!
     @IBOutlet weak var cartTabBar: UITabBarItem!
+    @IBOutlet weak var totalPiecesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cartTable.delegate = self
         cartTable.dataSource = self
+        
+        totalPiecesLabel.text = String(tot!)
+        
         //navigationController?.navigationBar.isHidden = true
         loadCartBeers()
     }
@@ -58,6 +62,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     self.cart.append(i)
                     tot! += cartItem["quantity"] as! Int
+                    self.totalPiecesLabel.text = String(tot!)
                 }
             }
             self.cartTabBar.badgeValue = String(tot!)
@@ -88,5 +93,15 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
              }
          }
         return cell
+    }
+    
+    
+    @IBAction func sendOrdeAction(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "cartTOsendEmail", sender: nil)
+    }
+    
+    @IBAction func returnTOCart(sender: UIStoryboardSegue) {
+        
     }
 }

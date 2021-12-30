@@ -337,8 +337,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bv9-XF-1DG">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="789"/>
+                                <rect key="frame" x="0.0" y="8" width="428" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="738" id="icg-Tx-ffR"/>
+                                </constraints>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="149" id="a9U-TU-Pb6" customClass="CartTableViewCell" customModule="BeersCommerce" customModuleProvider="target">
@@ -405,14 +408,46 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="LIe-5N-HN6">
+                                <rect key="frame" x="0.0" y="746" width="428" height="43"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total pieces:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQf-gK-sOd">
+                                        <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="43"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hfg-AN-cYl">
+                                        <rect key="frame" x="242.66666666666666" y="0.0" width="19.666666666666657" height="43"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="39"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YW1-Gv-utl">
+                                        <rect key="frame" x="310.33333333333331" y="0.0" width="117.66666666666669" height="43"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Send Order">
+                                            <fontDescription key="titleFontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sendOrdeAction:" destination="Dxu-zb-YtK" eventType="touchUpInside" id="xON-nI-Q9I"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.023529411760000001" green="0.58039215690000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nmq-IA-K92"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bv9-XF-1DG" firstAttribute="leading" secondItem="b9M-RY-GJC" secondAttribute="leading" id="MTV-Gl-Mmh"/>
-                            <constraint firstItem="bv9-XF-1DG" firstAttribute="top" secondItem="nmq-IA-K92" secondAttribute="top" id="QXY-o2-DbZ"/>
-                            <constraint firstAttribute="trailing" secondItem="bv9-XF-1DG" secondAttribute="trailing" id="o4M-7Q-Nqe"/>
-                            <constraint firstItem="bv9-XF-1DG" firstAttribute="bottom" secondItem="nmq-IA-K92" secondAttribute="bottom" id="u35-LR-pjy"/>
+                            <constraint firstItem="nmq-IA-K92" firstAttribute="trailing" secondItem="LIe-5N-HN6" secondAttribute="trailing" id="4RZ-Av-hjO"/>
+                            <constraint firstItem="bv9-XF-1DG" firstAttribute="leading" secondItem="LIe-5N-HN6" secondAttribute="leading" id="BQu-ha-JkS"/>
+                            <constraint firstItem="LIe-5N-HN6" firstAttribute="leading" secondItem="nmq-IA-K92" secondAttribute="leading" id="F4q-Ck-195"/>
+                            <constraint firstItem="bv9-XF-1DG" firstAttribute="trailing" secondItem="LIe-5N-HN6" secondAttribute="trailing" id="Rxc-s8-jnF"/>
+                            <constraint firstItem="LIe-5N-HN6" firstAttribute="top" secondItem="bv9-XF-1DG" secondAttribute="bottom" id="sXi-O6-3a5"/>
+                            <constraint firstItem="nmq-IA-K92" firstAttribute="bottom" secondItem="LIe-5N-HN6" secondAttribute="bottom" id="yn3-l3-BuG"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" id="G2o-uF-iEV">
@@ -422,6 +457,8 @@
                     <connections>
                         <outlet property="cartTabBar" destination="G2o-uF-iEV" id="HtC-SD-izu"/>
                         <outlet property="cartTable" destination="bv9-XF-1DG" id="BhR-LI-dvg"/>
+                        <outlet property="totalPiecesLabel" destination="hfg-AN-cYl" id="fTg-nM-Wyq"/>
+                        <segue destination="lCu-7h-Kyk" kind="show" identifier="cartTOsendEmail" id="4lM-cx-com"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZb-9g-QbX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -526,6 +563,41 @@
             </objects>
             <point key="canvasLocation" x="1544.8598130841121" y="174.94600431965443"/>
         </scene>
+        <!--Send Email Order View Controller-->
+        <scene sceneID="l9f-Rc-fw2">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="lCu-7h-Kyk" customClass="SendEmailOrderViewController" customModule="BeersCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cW0-Cl-Kzr">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFl-EU-2oE">
+                                <rect key="frame" x="166" y="429" width="97" height="69"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cart"/>
+                                <connections>
+                                    <segue destination="dGh-Tm-2RW" kind="unwind" unwindAction="returnTOCartWithSender:" id="vP0-Ku-cfC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ifV-Xk-eZ4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CFl-EU-2oE" firstAttribute="centerX" secondItem="cW0-Cl-Kzr" secondAttribute="centerX" id="4xb-Bn-SqZ"/>
+                            <constraint firstItem="CFl-EU-2oE" firstAttribute="centerY" secondItem="cW0-Cl-Kzr" secondAttribute="centerY" id="dON-J8-whe"/>
+                            <constraint firstItem="CFl-EU-2oE" firstAttribute="top" secondItem="ifV-Xk-eZ4" secondAttribute="top" constant="385" id="odU-xZ-MZH"/>
+                            <constraint firstItem="CFl-EU-2oE" firstAttribute="leading" secondItem="ifV-Xk-eZ4" secondAttribute="leading" constant="166" id="pS0-9O-EUc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Re0-mv-qV5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cy-kF-Cm0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="dGh-Tm-2RW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="783.64485981308405" y="1728.7257019438446"/>
+        </scene>
         <!--Beers-->
         <scene sceneID="G5Z-fa-LTu">
             <objects>
@@ -568,6 +640,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

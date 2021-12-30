@@ -79,5 +79,5 @@ struct BeerFromDatabase {
     var firstBrewed: String
     var foodPairing: [String]
     var brewersTips: String
-    var quantity: String
+    var quantity: Int
 }

@@ -53,7 +53,7 @@ class SignInViewController: UIViewController {
                          "firstBrewed": beer.firstBrewed,
                          "foodPairing": beer.foodPairing,
                          "brewersTips": beer.brewersTips,
-                         "quantity": "0"])
+                         "quantity": 0])
                     }
                 }
                 

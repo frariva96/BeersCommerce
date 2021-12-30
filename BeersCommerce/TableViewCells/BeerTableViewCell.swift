@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-var cartQuantity: String?
+var cartQuantity: Int?
 
 class BeerTableViewCell: UITableViewCell {
     
@@ -22,13 +22,13 @@ class BeerTableViewCell: UITableViewCell {
     
     @IBAction func cartMinusAction(_ sender: UIButton) {
         
-        cartQuantity = String(Int(cartQuantityLabel.text!)! - 1)
+        cartQuantity = Int(cartQuantityLabel.text!)! - 1
         userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
     }
     
     @IBAction func cartPlusAction(_ sender: UIButton) {
         
-        cartQuantity = String(Int(cartQuantityLabel.text!)! + 1)
+        cartQuantity = Int(cartQuantityLabel.text!)! + 1
         userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
     }
 }

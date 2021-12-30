@@ -12,7 +12,7 @@ var beerListDatabase: [BeerFromDatabase] = []
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    var user: String?
+    var user: String? = "ybRYhEPYMAWCSAQcTzO70KO2OTD3"
 
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!
@@ -23,7 +23,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         beerTable.delegate = self
         beerTable.dataSource = self
         searchBarBeer.delegate = self
-       
+        //navigationController?.navigationBar.isHidden = true
+        
         loadDataFromDatabase()
         
     }
@@ -50,7 +51,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     firstBrewed: beer["firstBrewed"] as! String,
                     foodPairing: beer["foodPairing"] as! [String],
                     brewersTips: beer["brewersTips"] as! String,
-                    quantity: beer["quantity"] as! String)
+                    quantity: beer["quantity"] as! Int)
                 )
             }
             self.beerTable.reloadData()
@@ -70,7 +71,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.beerDescription.text = beerListDatabase[indexPath.row].description
         cell.beerAbv.text = beerListDatabase[indexPath.row].abv + "% VOL."
         cell.beerIbu.text = beerListDatabase[indexPath.row].ibu
-        cell.cartQuantityLabel.text = beerListDatabase[indexPath.row].quantity
+        cell.cartQuantityLabel.text = String(beerListDatabase[indexPath.row].quantity)
         
         // caricamento asincrono delle immagini
        if let url = NSURL(string: beerListDatabase[indexPath.row].imageUrl) {

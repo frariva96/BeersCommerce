@@ -21,6 +21,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cartTable.delegate = self
         cartTable.dataSource = self
+        //navigationController?.navigationBar.isHidden = true
         
         userCart!.observe(.value) { snapshot in
             
@@ -31,8 +32,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let cartData = item as! DataSnapshot
                 let cartItem = cartData.value as! [String: Any]
                 
-                if cartItem["quantity"]! as! String != "0" {
-                    self.cart.append(CartItem(id: String(describing: cartItem["id"]!), name: String(describing: cartItem["name"]!), quantity: String(describing: cartItem["quantity"]!)))
+                if cartItem["quantity"] as! Int > 0 {
+                    self.cart.append(CartItem(id: String(describing: cartItem["id"]!), name: String(describing: cartItem["name"]!), quantity: cartItem["quantity"] as! Int))
                 }
             }
             self.cartTable.reloadData()
@@ -49,7 +50,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath)
         
         cell.textLabel?.text = cart[indexPath.row].name
-        cell.detailTextLabel?.text = cart[indexPath.row].quantity
+        cell.detailTextLabel?.text = String(cart[indexPath.row].quantity)
         
         return cell
     }

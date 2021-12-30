@@ -18,21 +18,17 @@ class BeerTableViewCell: UITableViewCell {
     @IBOutlet weak var beerAbv: UILabel!
     @IBOutlet weak var beerIbu: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
-    @IBOutlet weak var idBeerLabel: UILabel!
     
     
     @IBAction func cartMinusAction(_ sender: UIButton) {
         
         cartQuantity = String(Int(cartQuantityLabel.text!)! - 1)
-        
         userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
     }
-    
     
     @IBAction func cartPlusAction(_ sender: UIButton) {
         
         cartQuantity = String(Int(cartQuantityLabel.text!)! + 1)
-        
         userCart!.child(beerTitle.text!).updateChildValues(["quantity": cartQuantity! ])
     }
 }

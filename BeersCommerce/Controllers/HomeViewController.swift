@@ -12,7 +12,6 @@ var beerListDatabase: [BeerFromDatabase] = []
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    var beerViewModel: BeersViewModel!
     var user: String?
 
     @IBOutlet weak var searchBarBeer: UISearchBar!
@@ -32,17 +31,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func loadDataFromDatabase() {
         userCart = Database.database().reference().child("cartUser").child(user!)
         
-        
         userCart?.observe(.value) { snapshot in
             
             beerListDatabase = []
             
             for item in snapshot.children {
+                
                 let beerData = item as! DataSnapshot
-                
                 let beer = beerData.value as! [String: Any]
-                
-                print("BEER DATA: \(beerData)")
                 
                 beerListDatabase.append(BeerFromDatabase(
                     id: beer["id"] as! Int,
@@ -56,16 +52,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     brewersTips: beer["brewersTips"] as! String,
                     quantity: beer["quantity"] as! String)
                 )
-                
-                print("BEERLIST: \(beersList.count)")
-                
             }
-            
             self.beerTable.reloadData()
-        
         }
-        
-        print("BEERLISTHOME: \(beersList.count)")
     }
     
     
@@ -83,10 +72,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.beerIbu.text = beerListDatabase[indexPath.row].ibu
         cell.cartQuantityLabel.text = beerListDatabase[indexPath.row].quantity
         
-        cell.idBeerLabel.text = String(beerListDatabase[indexPath.row].id)
-        
-        
-        
         // caricamento asincrono delle immagini
        if let url = NSURL(string: beerListDatabase[indexPath.row].imageUrl) {
             DispatchQueue.global(qos: .default).async{
@@ -97,8 +82,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }
-        
-        
         return cell
     }
     
@@ -109,7 +92,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         let vc = segue.destination as! BeerInfoViewController
-        let beer = sender as! Beer
+        let beer = sender as! BeerFromDatabase
         vc.beer = beer
     }
     
@@ -129,7 +112,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBarBeer.text = ""
-        beerTable.reloadData()
+        loadDataFromDatabase()
         searchBarBeer.setShowsCancelButton(false, animated: true)
         searchBarBeer.endEditing(true)
     }
@@ -162,15 +145,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.beerTable.reloadData()
     }
     
-    
-    
-    
     @IBAction func cartAction(_ sender: UIBarButtonItem) {
         
         performSegue(withIdentifier: "homeTOcart", sender: nil)
     }
-    
-    
-    
-    
 }

@@ -11,7 +11,6 @@ import Firebase
 class SignInViewController: UIViewController {
     
     var beerlistFirebase: DatabaseReference?
-    
     var beerViewModel: BeersViewModel!
     
     @IBOutlet weak var usernameTxt: UITextField!
@@ -21,17 +20,13 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         loadBeersData()
-        
     }
     
     func loadBeersData () {
         beerViewModel = BeersViewModel()
     }
-    
-    
-    
+
     @IBAction func signInAction(_ sender: UIButton) {
-        
         
         guard let email = usernameTxt.text, !email.isEmpty, let password = passwordTxt.text, !password.isEmpty else {
             return
@@ -47,16 +42,23 @@ class SignInViewController: UIViewController {
                 self.beerlistFirebase = Database.database().reference().child("cartUser").child((user?.user.uid)!)
                 
                 for beer in beersList {
-                    
                     if beer.id != 22 {
                         self.beerlistFirebase!.child(beer.name).updateChildValues(
-                            ["id": beer.id, "name": beer.name, "imageUrl": beer.imageUrl, "description": beer.description, "abv": beer.abv, "ibu": beer.ibu, "firstBrewed": beer.firstBrewed, "foodPairing": beer.foodPairing, "brewersTips": beer.brewersTips, "quantity": "0"])
+                        ["id": beer.id,
+                         "name": beer.name,
+                         "imageUrl": beer.imageUrl,
+                         "description": beer.description,
+                         "abv": beer.abv,
+                         "ibu": beer.ibu,
+                         "firstBrewed": beer.firstBrewed,
+                         "foodPairing": beer.foodPairing,
+                         "brewersTips": beer.brewersTips,
+                         "quantity": "0"])
                     }
                 }
                 
                 self.usernameTxt.text = ""
                 self.passwordTxt.text = ""
-                
                 self.performSegue(withIdentifier: "signinTOhome", sender: user?.user.uid)
             }
         }

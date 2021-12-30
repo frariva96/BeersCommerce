@@ -10,16 +10,11 @@ import Firebase
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-   
-    
-    
     var cartListFirebase: DatabaseReference = Database.database().reference().child("cartlist")
     
     var cart: [CartItem] = []
     
     @IBOutlet weak var cartTable: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,33 +22,22 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         cartTable.delegate = self
         cartTable.dataSource = self
         
-        
         userCart!.observe(.value) { snapshot in
             
             self.cart = []
             
             for item in snapshot.children {
+                
                 let cartData = item as! DataSnapshot
-                
                 let cartItem = cartData.value as! [String: Any]
-                
-                print("\(String(describing: cartItem["name"]!)) \(String(describing: cartItem["quantity"]!))")
-                
                 
                 if cartItem["quantity"]! as! String != "0" {
                     self.cart.append(CartItem(id: String(describing: cartItem["id"]!), name: String(describing: cartItem["name"]!), quantity: String(describing: cartItem["quantity"]!)))
                 }
-                
-                
-                
             }
-            
             self.cartTable.reloadData()
         }
-        
-
     }
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +45,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath)
         
         cell.textLabel?.text = cart[indexPath.row].name
@@ -68,7 +53,4 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
-    
-
-  
 }

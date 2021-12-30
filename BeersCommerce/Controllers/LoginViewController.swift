@@ -16,12 +16,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-     
     }
-    
-
-   
     @IBAction func loginAction(_ sender: UIButton) {
         
         guard let username = usernameTxt.text, !username.isEmpty, let password = passwordTxt.text, !password.isEmpty else {
@@ -32,7 +27,6 @@ class LoginViewController: UIViewController {
             
             if error != nil {
                 
-                
                 let alert = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -42,12 +36,9 @@ class LoginViewController: UIViewController {
             }else{
                 self.usernameTxt.text = ""
                 self.passwordTxt.text = ""
-                
-                
                 self.performSegue(withIdentifier: "loginTOhome", sender: user?.user.uid)
             }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,13 +50,8 @@ class LoginViewController: UIViewController {
         let nav = segue.destination as! UINavigationController
         let vc = nav.topViewController as! HomeViewController
         vc.user = sender as? String
-        
     }
-    
-    
     
     @IBAction func returnLogin(segue: UIStoryboardSegue) {
-        
     }
-    
 }

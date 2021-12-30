@@ -97,14 +97,6 @@
                                                         </button>
                                                     </subviews>
                                                 </stackView>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="idBeer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8y-WS-qGb">
-                                                    <rect key="frame" x="48" y="11" width="50" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sIQ-vo-SH8" firstAttribute="top" secondItem="15U-Z2-Lby" secondAttribute="bottom" constant="19" id="246-7O-lbC"/>
@@ -142,7 +134,6 @@
                                             <outlet property="beerImage" destination="15U-Z2-Lby" id="IOk-VU-eSb"/>
                                             <outlet property="beerTitle" destination="tkA-Ps-K53" id="ycc-9D-WP3"/>
                                             <outlet property="cartQuantityLabel" destination="2Cg-Te-C6Q" id="0mV-iW-NEJ"/>
-                                            <outlet property="idBeerLabel" destination="y8y-WS-qGb" id="DHw-xl-NB3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -9,7 +9,7 @@ import UIKit
 
 class BeerInfoViewController: UIViewController {
     
-    var beer: Beer?
+    var beer: BeerFromDatabase?
     
     @IBOutlet weak var firstBrewedLabel: UILabel!
     @IBOutlet weak var foodPairingLabel: UILabel!
@@ -20,7 +20,6 @@ class BeerInfoViewController: UIViewController {
         
         firstBrewedLabel.text = beer?.brewersTips
         
-        
         var result: String = ""
         
         for el in beer!.foodPairing {
@@ -29,16 +28,7 @@ class BeerInfoViewController: UIViewController {
             result = result + formattedString
         }
         
-        
         foodPairingLabel.text = result
-
-        print(beer?.brewersTips)
-        
         brewersTipsLabel.text = beer?.firstBrewed
-     
     }
-    
-
-  
-
 }

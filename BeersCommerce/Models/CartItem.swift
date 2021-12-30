@@ -18,5 +18,4 @@ class CartItem {
         self.name = name
         self.quantity = quantity
     }
-    
 }

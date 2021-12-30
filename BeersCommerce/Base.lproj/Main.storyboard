@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zpN-Ix-C3D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="htg-Nb-3Jx">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -156,7 +156,7 @@
                         <barButtonItem key="leftBarButtonItem" image="arrow.backward.to.line" catalog="system" id="cFD-Gq-QK8">
                             <connections>
                                 <action selector="logoutAction:" destination="fhL-JC-RCz" id="BeM-zG-Zbc"/>
-                                <segue destination="gbU-Ri-4yg" kind="unwind" unwindAction="returnLoginWithSegue:" id="Gyh-jg-hn1"/>
+                                <segue destination="gbU-Ri-4yg" kind="unwind" unwindAction="returnLoginWithSegue:" id="dAO-b5-2NJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Cart" id="er7-oQ-Z79">
@@ -344,29 +344,66 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="789"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" textLabel="TJc-lk-4rc" detailTextLabel="GiC-O8-TcP" style="IBUITableViewCellStyleValue1" id="a9U-TU-Pb6">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="200" id="a9U-TU-Pb6" customClass="CartTableViewCell" customModule="BeersCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9U-TU-Pb6" id="5I7-oK-OJm">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TJc-lk-4rc">
-                                                    <rect key="frame" x="20" y="15" width="25" height="14.333333333333334"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hvS-9k-W7J">
+                                                    <rect key="frame" x="20" y="11" width="127" height="178"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleBeer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-tF-sIf">
+                                                    <rect key="frame" x="155" y="56" width="253" height="38"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GiC-O8-TcP">
-                                                    <rect key="frame" x="375.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="0XI-eb-deq">
+                                                    <rect key="frame" x="217" y="141" width="129" height="30.666666666666657"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvb-1o-Mu0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="30.666666666666668"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="cart.badge.minus" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="cartMinusAction:" destination="a9U-TU-Pb6" eventType="touchUpInside" id="Q9N-jH-UwE"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Xec-fd-kmP">
+                                                            <rect key="frame" x="59.666666666666686" y="0.0" width="10" height="30.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCC-4J-ujR">
+                                                            <rect key="frame" x="80.666666666666686" y="0.0" width="48.333333333333343" height="30.666666666666668"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="cart.badge.plus" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="cartPlusAction:" destination="a9U-TU-Pb6" eventType="touchUpInside" id="9Ay-HL-cvP"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Xec-fd-kmP" firstAttribute="centerX" secondItem="0XI-eb-deq" secondAttribute="centerX" id="dKy-ng-PXG"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0XI-eb-deq" firstAttribute="leading" secondItem="hvS-9k-W7J" secondAttribute="trailing" constant="70" id="7rn-Dm-Lxs"/>
+                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="leading" secondItem="hvS-9k-W7J" secondAttribute="trailing" constant="8" symbolic="YES" id="LqG-RP-ORP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0XI-eb-deq" secondAttribute="bottom" constant="17.333333333333343" id="Ocg-EB-DHq"/>
+                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="centerX" secondItem="0XI-eb-deq" secondAttribute="centerX" id="asE-S8-AfJ"/>
+                                                <constraint firstItem="0XI-eb-deq" firstAttribute="top" secondItem="qLK-tF-sIf" secondAttribute="bottom" constant="47" id="j33-hH-Pgl"/>
+                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="top" secondItem="5I7-oK-OJm" secondAttribute="topMargin" constant="45" id="jj2-fD-6F1"/>
+                                                <constraint firstItem="qLK-tF-sIf" firstAttribute="trailing" secondItem="5I7-oK-OJm" secondAttribute="trailingMargin" id="qUP-F4-g6K"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="beerImage" destination="hvS-9k-W7J" id="6xw-f5-Rbv"/>
+                                            <outlet property="beerTitle" destination="qLK-tF-sIf" id="hiV-x0-3Hp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -391,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZb-9g-QbX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="946"/>
+            <point key="canvasLocation" x="785.04672897196258" y="945.35637149028082"/>
         </scene>
         <!--Beer Info View Controller-->
         <scene sceneID="pPD-hw-txr">
@@ -479,6 +516,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Home" id="2n4-AB-sXV"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UHC-9b-IuC">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

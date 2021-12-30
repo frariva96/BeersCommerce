@@ -11,7 +11,7 @@ import Firebase
 var tot: Int? = 0
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var cartListFirebase: DatabaseReference = Database.database().reference().child("cartlist")
+    //var cartListFirebase: DatabaseReference = Database.database().reference().child("cartlist")
     
     var cart: [CartItem] = []
     
@@ -24,7 +24,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         cartTable.delegate = self
         cartTable.dataSource = self
         //navigationController?.navigationBar.isHidden = true
-        
+        loadCartBeers()
+    }
+    
+    func loadCartBeers() {
+        userCart = Database.database().reference().child("cartUser").child(userGlobal!)
         userCart!.observe(.value) { snapshot in
             
             self.cart = []
@@ -36,8 +40,16 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let cartItem = cartData.value as! [String: Any]
                 
                 if cartItem["quantity"] as! Int > 0 {
-                    self.cart.append(CartItem(id: String(describing: cartItem["id"]!), name: String(describing: cartItem["name"]!), quantity: cartItem["quantity"] as! Int))
                     
+                    let i = CartItem(
+                        id: String(describing: cartItem["id"]!),
+                        name: String(describing: cartItem["name"]!),
+                        imageUrl: String(describing: cartItem["imageUrl"]!),
+                        quantity: cartItem["quantity"] as! Int)
+                    
+                    print("ITEMS: \(i)")
+                    
+                    self.cart.append(i)
                     tot! += cartItem["quantity"] as! Int
                 }
             }
@@ -53,11 +65,20 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
         
-        cell.textLabel?.text = cart[indexPath.row].name
-        cell.detailTextLabel?.text = String(cart[indexPath.row].quantity)
+        cell.beerTitle.text = cart[indexPath.row].name
         
+        if let url = NSURL(string: cart[indexPath.row].imageUrl) {
+            
+             DispatchQueue.global(qos: .default).async{
+                 if let data = NSData(contentsOf: url as URL) {
+                     DispatchQueue.main.async {
+                         cell.beerImage.image = UIImage(data: data as Data)
+                     }
+                 }
+             }
+         }
         return cell
     }
 }

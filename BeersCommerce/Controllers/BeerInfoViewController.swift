@@ -20,6 +20,8 @@ class BeerInfoViewController: UIViewController {
         
         firstBrewedLabel.text = beer?.brewersTips
         
+        tabBarController?.tabBar.isHidden = true
+        
         var result: String = ""
         
         for el in beer!.foodPairing {

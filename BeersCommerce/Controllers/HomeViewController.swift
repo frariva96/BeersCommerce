@@ -9,18 +9,22 @@ import UIKit
 import Firebase
 
 var beerListDatabase: [BeerFromDatabase] = []
-
+var userGlobal: String?
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    var user: String? = "ybRYhEPYMAWCSAQcTzO70KO2OTD3"
+    
     var cartItemTabBar: UITabBarItem?
+    var user: String? = "NhoqolKV5lfcEGRSasV7PEpZL862"
     
     @IBOutlet weak var searchBarBeer: UISearchBar!
     @IBOutlet weak var beerTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBarController?.tabBar.isHidden = false
 
+        userGlobal = user
         beerTable.delegate = self
         beerTable.dataSource = self
         searchBarBeer.delegate = self
@@ -28,6 +32,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         loadDataFromDatabase()
         cartItemTabBar = tabBarController?.tabBar.items![1]
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
     
     func loadDataFromDatabase() {

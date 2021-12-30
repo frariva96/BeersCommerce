@@ -21,6 +21,15 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .lightGray
+            tabBarController?.tabBar.standardAppearance = appearance
+            tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBar.standardAppearance
+        }
+        
+        
         cartTable.delegate = self
         cartTable.dataSource = self
         //navigationController?.navigationBar.isHidden = true
@@ -46,8 +55,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                         name: String(describing: cartItem["name"]!),
                         imageUrl: String(describing: cartItem["imageUrl"]!),
                         quantity: cartItem["quantity"] as! Int)
-                    
-                    print("ITEMS: \(i)")
                     
                     self.cart.append(i)
                     tot! += cartItem["quantity"] as! Int

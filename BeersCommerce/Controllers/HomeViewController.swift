@@ -23,6 +23,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         tabBarController?.tabBar.isHidden = false
+        
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .lightGray
+            tabBarController?.tabBar.standardAppearance = appearance
+            tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBar.standardAppearance
+        }
 
         userGlobal = user
         beerTable.delegate = self

@@ -403,6 +403,7 @@
                                         <connections>
                                             <outlet property="beerImage" destination="hvS-9k-W7J" id="6xw-f5-Rbv"/>
                                             <outlet property="beerTitle" destination="qLK-tF-sIf" id="hiV-x0-3Hp"/>
+                                            <outlet property="quantityLabel" destination="Xec-fd-kmP" id="dIP-pK-UPd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -75,6 +75,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
         
         cell.beerTitle.text = cart[indexPath.row].name
+        cell.quantityLabel.text = String(cart[indexPath.row].quantity)
         
         if let url = NSURL(string: cart[indexPath.row].imageUrl) {
             

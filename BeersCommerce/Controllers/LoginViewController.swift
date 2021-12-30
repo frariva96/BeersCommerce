@@ -47,9 +47,10 @@ class LoginViewController: UIViewController {
             return
         }
         
-        let nav = segue.destination as! UINavigationController
-        let vc = nav.topViewController as! HomeViewController
-        vc.user = sender as? String
+        let nav = segue.destination as! UITabBarController
+        let vc = nav.viewControllers![0] as! UINavigationController
+        let vc2 = vc.topViewController as! HomeViewController
+        vc2.user = sender as? String
     }
     
     @IBAction func returnLogin(segue: UIStoryboardSegue) {

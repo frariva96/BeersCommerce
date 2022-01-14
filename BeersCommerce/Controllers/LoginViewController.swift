@@ -15,14 +15,25 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var switchRememberMe: UISwitch!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        switchRememberMe.isOn = false
+    }
+    
     @IBAction func loginAction(_ sender: UIButton) {
         
         guard let username = usernameTxt.text, !username.isEmpty, let password = passwordTxt.text, !password.isEmpty else {
             return
+        }
+        
+        if switchRememberMe.isOn {
+            print("isOn")
         }
         
         Auth.auth().signIn(withEmail: username, password: password) { user, error in

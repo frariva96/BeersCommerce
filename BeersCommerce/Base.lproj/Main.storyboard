@@ -284,7 +284,7 @@
                                     <constraint firstItem="XCg-kC-Pnf" firstAttribute="height" secondItem="Rdx-sH-CC2" secondAttribute="height" id="TI7-M4-Fhx"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="T8l-cn-dLm">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="T8l-cn-dLm">
                                 <rect key="frame" x="89" y="459" width="197" height="31"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jxw-bL-L0u">
@@ -322,7 +322,6 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="passwordTxt" destination="Rdx-sH-CC2" id="wwG-mH-zxJ"/>
-                        <outlet property="switchRememberMe" destination="jxw-bL-L0u" id="2O1-AD-PUY"/>
                         <outlet property="usernameTxt" destination="XCg-kC-Pnf" id="sRJ-Bb-UNX"/>
                         <segue destination="htg-Nb-3Jx" kind="show" identifier="loginTOhome" id="Hun-ei-oUG"/>
                     </connections>
